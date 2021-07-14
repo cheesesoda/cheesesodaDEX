@@ -45,11 +45,12 @@
   "scripts": {
     "predeploy": "git pull --ff-only && yarn && yarn build",
     "deploy": "gh-pages -d build",
-    "start": "craco start",
-    "build": "craco build",
+    "start": "yarn copy-serum && craco start",
+    "build": "yarn copy-serum && craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write src"
+    "prettier": "prettier --write src",
+    "copy-serum": "cp -r ./src/serum/{markets.json,token-mints.json} ./node_modules/@project-serum/serum/lib/"
   },
   "eslintConfig": {
     "extends": "react-app"
